@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="text-align: center;">
+        <form method="POST"> 
+            {% csrf_token %}
+            <input type="text" name="city" style="height: 40px;width: 400px;background-color: rgb(135, 195, 222);font-size: large;" placeholder="ENTER CITY NAME"/>
+            <input type="submit" value="search" style="height: 50px;width: 100px;background-color: blue;" />
+        </form>
+    </div>
+    <div style="background-color: cornsilk; border-color: red; color: palevioletred;text-align: center;">
+        {% if country_code and city_name and temp %}
+        <h1>Country code: {{country_code}}</h1>
+        <h1>City name   : {{city_name}}</h1>
+        <h1>Temparature : {{temp}}</h1>
+        <div>
+        <h1>Description : {{description}}</h1>
+        <p><img src="https://api.openweathermap.org/img/w/{{icon}}.png" alt="image error" style="width: 100px;" > </p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
